@@ -6,7 +6,7 @@ class Companyname {
             children: [
               TextSpan(
                 text: "ChalDal",
-                style: TextStyle(fontSize: 25, color: Colors.white)
+                style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 0, 0, 0), fontWeight: FontWeight.bold)
               ),
               TextSpan(
                 text: ".com",
