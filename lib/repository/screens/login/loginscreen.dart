@@ -65,6 +65,7 @@ class _LoginscreenState extends State<Loginscreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(height: 10,),
                   SizedBox(
                     child: Column(
                       children: [
