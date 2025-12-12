@@ -6,6 +6,8 @@ import "package:market_ui/repository/screens/login/loginscreen.dart";
 import "package:market_ui/repository/widgets/uihelper.dart";
 
 class SplashScreen extends StatefulWidget{
+  const SplashScreen({super.key});
+
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
