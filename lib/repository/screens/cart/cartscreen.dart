@@ -1,73 +1,97 @@
 import "package:flutter/material.dart";
-import "package:market_ui/domain/constants/companyname.dart";
+import "package:market_ui/repository/widgets/appbar.dart";
+import "package:market_ui/repository/widgets/itemviewer.dart";
 import "package:market_ui/repository/widgets/uihelper.dart";
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
-  var TextEditingController search = TextEditingController();
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  late final TextEditingController search;
+  var snacksanddrinks = [
+    {"img": "image 31.png", "text": "Chips &\n Namkeens"},
+    {"img": "image 32.png", "text": "Sweets & \nChocalates"},
+    {"img": "image 33.png", "text": "Drinks & \nJuices"},
+    {"img": "image 34.png", "text": "Sauces &\n Spreads"},
+    {"img": "image 35.png", "text": "Beauty &\n Cosmetics"},
+    {"img": "image 23.png", "text": "Tea & \nCoffees"},
+    {"img": "image 24.png", "text": "Ice Creams & \nmuch more"},
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    search = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    search.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: double.infinity,
-            height: 250,
-            color: Colors.amberAccent,
-          ),
-          SizedBox(
-            height: 200,
-            child: Column(
-              children: [
-                SizedBox(height: 50),
-                Row(children: [SizedBox(width: 20), Companyname.Name]),
-                Row(
-                  children: [
-                    SizedBox(width: 20),
-                    Uihelper.CustomText(
-                      text: "69 minutes",
-                      color: Colors.black,
-                      weight: FontWeight.bold,
-                      size: 30,
-                    ),
-                  ],
+
+          Appbar.show(controller: search),
+
+           Padding(
+             padding: const EdgeInsets.only(top: 20),
+             child: SizedBox(
+                  height: 290,
+                  width: double.infinity,
+                  
+                  child: Column(
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 200,
+                        child: Image.asset(
+                          "assets/images/shoping_cart.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      SizedBox(height: 15,),
+                      Uihelper.CustomText(text: "Reordering will be easy", color: Colors.black, weight: FontWeight.bold, size: 23, fontfamily: 'bold'),
+                      SizedBox(
+                        width: 320,
+                        child: Uihelper.CustomText(text: "Items you order will show up here so you can buy them again easily", color: Colors.black, weight: FontWeight.bold, size: 13, aling: TextAlign.center),
+                      )
+                    ],
+                  ),
                 ),
-                Row(
+           ),
+          SizedBox(height: 30,),
+          SizedBox(
+            height: 30,
+            child: Row(
+              children: [
+                SizedBox(width: 20,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(width: 20),
-                    Uihelper.CustomText(
-                      text: "HOME - ",
-                      color: Colors.black,
-                      weight: FontWeight.bold,
-                      size: 15,
-                    ),
-                    Uihelper.CustomText(
-                      text: "Sibu Market, Fatullah, Narayangonj",
-                      color: Colors.black,
-                      weight: FontWeight.normal,
-                      size: 12,
-                    ),
-                    Icon(Icons.arrow_drop_down),
+                    Uihelper.CustomText(text: "Bestsellers", color: Colors.black, weight: FontWeight.bold, size: 20, fontfamily: 'bold', aling: TextAlign.left),
+
                   ],
                 ),
               ],
             ),
           ),
-          Positioned(
-            right: 30,
-            top: 70,
-            child: CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.white60,
-              child: Icon(Icons.person_4_rounded, color: Colors.black),
-            ),
-          ),
-          TextField(
+          Itemviewer.show(itemList: snacksanddrinks)
 
-          )
         ],
+
       ),
     );
   }

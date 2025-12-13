@@ -12,6 +12,8 @@ class Uihelper {
     required FontWeight weight,
     String? fontfamily,
     required double size,
+    TextAlign aling = TextAlign.left
+    
   }) {
     return Text(
       text,
@@ -20,9 +22,13 @@ class Uihelper {
         fontFamily: fontfamily ?? "regular",
         fontWeight: weight,
         color: color,
+        
       ),
+      textAlign: aling,
     );
   }
+
+
 
   
 }
