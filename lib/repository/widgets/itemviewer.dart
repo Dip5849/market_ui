@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:market_ui/repository/widgets/uihelper.dart';
 
@@ -57,7 +56,7 @@ class Itemviewer {
     );
   }
 
-  static categoryTitle({required String title}){
+  static Row categoryTitle({required String title}){
     return Row(
                     children: [
                       SizedBox(width: 20),

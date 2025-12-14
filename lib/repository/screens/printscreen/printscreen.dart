@@ -30,7 +30,12 @@ class _PrintScrenState extends State<PrintScreen> {
       child: Column(
         children: [
           Appbar.show(controller: search),
-          SizedBox(
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  SizedBox(
                 height: 30,
               ),
               Uihelper.CustomText(
@@ -155,6 +160,11 @@ class _PrintScrenState extends State<PrintScreen> {
                   child: Uihelper.CustomImage(img: "document.png"),
                 )
               ])
+                ],
+              ),
+            )
+            )
+          
         ],
       ),
     ));

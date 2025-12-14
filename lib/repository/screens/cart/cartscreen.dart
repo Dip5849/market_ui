@@ -43,52 +43,61 @@ class _CartScreenState extends State<CartScreen> {
         children: [
 
           Appbar.show(controller: search),
-
-           Padding(
-             padding: const EdgeInsets.only(top: 20),
-             child: SizedBox(
-                  height: 290,
-                  width: double.infinity,
-                  
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 200,
-                        child: Image.asset(
-                          "assets/images/shoping_cart.png",
-                          fit: BoxFit.fill,
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  Padding(
+               padding: const EdgeInsets.only(top: 20),
+               child: SizedBox(
+                    height: 290,
+                    width: double.infinity,
+                    
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 200,
+                          child: Image.asset(
+                            "assets/images/shoping_cart.png",
+                            fit: BoxFit.fill,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 15,),
-                      Uihelper.CustomText(text: "Reordering will be easy", color: Colors.black, weight: FontWeight.bold, size: 23, fontfamily: 'bold'),
-                      SizedBox(
-                        width: 320,
-                        child: Uihelper.CustomText(text: "Items you order will show up here so you can buy them again easily", color: Colors.black, weight: FontWeight.bold, size: 13, aling: TextAlign.center),
-                      )
+                        SizedBox(height: 15,),
+                        Uihelper.CustomText(text: "Reordering will be easy", color: Colors.black, weight: FontWeight.bold, size: 23, fontfamily: 'bold'),
+                        SizedBox(
+                          width: 320,
+                          child: Uihelper.CustomText(text: "Items you order will show up here so you can buy them again easily", color: Colors.black, weight: FontWeight.bold, size: 13, aling: TextAlign.center),
+                        )
+                      ],
+                    ),
+                  ),
+             ),
+            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+              child: Row(
+                children: [
+                  SizedBox(width: 20,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Uihelper.CustomText(text: "Bestsellers", color: Colors.black, weight: FontWeight.bold, size: 20, fontfamily: 'bold', aling: TextAlign.left),
+            
                     ],
                   ),
-                ),
-           ),
-          SizedBox(height: 30,),
-          SizedBox(
-            height: 30,
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Uihelper.CustomText(text: "Bestsellers", color: Colors.black, weight: FontWeight.bold, size: 20, fontfamily: 'bold', aling: TextAlign.left),
-
-                  ],
-                ),
-              ],
+                ],
+              ),
+            ),
+            Itemviewer.show(itemList: snacksanddrinks)
+                ],
+              ),
             ),
           ),
-          Itemviewer.show(itemList: snacksanddrinks)
+           
 
         ],
 
